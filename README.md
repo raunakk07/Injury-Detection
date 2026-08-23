@@ -84,13 +84,6 @@ The same inputs via text fields, with a dark-theme restyle.
 
 <img src="injury-assets/fig11_review3_app_fixed.png" alt="Screenshot of REVIEW3.py with dark theme correctly rendering and real model output visible" width="850">
 
-### What was fixed
-
-Two issues were found and corrected in this version:
-
-1. **Placeholder formula → real model.** Both apps previously computed "Likelihood of Injury" with a hand-written formula (`BMI * 2 + height * 0.1 − weight * 0.05`) that had nothing to do with the NuSVC model trained in `Injury_Prediction.ipynb`. `train_model.py` now reproduces the notebook's exact feature engineering (BMI bucketing, age bucketing, one-hot encoding) and serializes the trained NuSVC model to `injury_model.joblib`; `injury_model.py` loads it and both apps call it directly. The apps also now collect all six features the model actually needs (age, weight, height, previous injuries, training intensity, recovery time) instead of only height/weight/recovery period. "Recommended Rest Days" remains a simple heuristic scaled by the model's predicted risk — the dataset has no rest-days target, so this is clearly labeled as a heuristic, not a model output, in the app itself.
-
-2. **Invisible result text in `REVIEW3.py`.** The original custom CSS set result text to white against a `body { background: black }` rule that didn't apply to Streamlit's real content container, making the output invisible (white-on-white) even though it was rendering correctly. The CSS now targets Streamlit's actual containers (`[data-testid="stAppViewContainer"]`, `[data-testid="stSidebar"]`, `[data-testid="stHeader"]`), so the dark theme renders as intended.
 
 ### Running the app
 
