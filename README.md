@@ -78,11 +78,6 @@ Sliders/inputs for age, height, weight, previous injuries, training intensity, a
 
 <img src="injury-assets/fig10_streamlit_app_fixed.png" alt="Screenshot of STREAMLIT.py showing real model output: BMI, likelihood of injury, model prediction, and recommended rest days" width="850">
 
-### `REVIEW3.py` — styled variant
-
-The same inputs via text fields, with a dark-theme restyle.
-
-<img src="injury-assets/fig11_review3_app_fixed.png" alt="Screenshot of REVIEW3.py with dark theme correctly rendering and real model output visible" width="850">
 
 
 ### Running the app
